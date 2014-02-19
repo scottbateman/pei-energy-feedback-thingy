@@ -26,7 +26,7 @@ Installing Required Software
 
 I have had a problem with getting the wireless adapter to connect to both my home and the University networks using the default wireless service in Raspbian. The only, and probably the easiest, way to get around this is to install a new wireless networking service called, wicd. To do this just run the following at the command prompt:
 
-```
+```bash
 sudo apt-get update
 sudo apt-get install wicd
 sudo apt-get install wicd-curses
@@ -36,11 +36,11 @@ The first install command will provide the basic wicd software and also provide 
 
 You will then need to configure wicd, by typing the following:
 
-```
+```bash
 wicd-curses
 ```
 
-You will then get and interface that will allow you to *hopefully* select your wireless network:
+You will then get and interface that will allow you to select your wireless network:
 - use the 'up' and 'down' arrow keys to select it from the list
 - press the 'right arrow' key to configure your network
 - the main thing you will need to do is to enter your wireless network key (in the line marked *Key*) 
@@ -51,6 +51,14 @@ You will then get and interface that will allow you to *hopefully* select your w
 - when you are connected, you can press Q to quit the wicd-curses interface.
 
 If you get lost at any point here is a good walkthrough to get wicd installed: [http://dembtech.blogspot.ca/2012/09/how-to-install-wifi-on-raspberry-pi.html](A Walkthrough with pictures of setting up wicd)
+
+### Configuring Python
+To be ablea to get information from the Web about current power production and consumption, we will use Python. Python comes pre-installed with Raspbian, but it does not yet know how to talk to the LEDs we will be wiring to the Pi to provide our visual feedback. We simply need to add a few libraries to make this possible:
+```bash
+sudo apt-get update
+sudo apt-get install python-dev
+sudo apt-get install python-rpi.gpio
+```
 
 
 Wiring up the Lights
