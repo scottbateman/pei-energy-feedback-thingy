@@ -5,6 +5,9 @@ Description, walkthrough and code for building an energy feedback appliance for 
 
 Description and Motivation
 --------------------------
+The code and this README file are designed to guide the development of a simple energy feedback appliance. 
+
+Rather than a focus on providing feedback on an individual household's consumption, this appliance is designed to provide feedback on "green" and "dirty" energy production/consumption as part of the total consumption in a particular juristiction, in this case the provice of Prince Edward Island in Canada (http://www.gov.pe.ca).
 
 Who is this guide for and how should I follow it?
 --------------------
