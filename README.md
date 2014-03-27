@@ -18,9 +18,11 @@ This encouraged us to consider consumer devices that might allow people to have 
 
 Who is this guide for and how should I follow it?
 --------------------
-The goal of this guide is to allow anyone who has at least some comfort with computer technology to be able to build this device, or a device very similar to this one. It is assumed that you have at least some basic knowledge about how to download and unzip files, copying files, and are confident enought to type in and execute some simple commands at the command line. 
+The goal of this guide is to allow anyone who has at least some comfort with computer technology to be able to build this device, or a device very similar to this one. It is assumed that you have at least some basic knowledge about how to download and unzip files, copying files, and are confident enought to type in and execute some simple commands at the command line. The only other thing you will needs is the ability to follow some directions, some free time (altogether this might take about 6 hours to get up and running), and some money to pay for supplies.
 
 The guide has been designed to be read and followed sequentially, although skipping sections is possible. People who have at least some experience with programming, Linux operating systems, or computer electronics may feel more comfortable to customize their feedback appliance, but such experience should not be necessary.
+
+The parts in grey boxes you see are commands that you will enter at the console prompt of your Raspberry Pi. These should be entered exactly as you see.
 
 If you get stuck, please contact me (@scottbateman) and I can *hopefully* provide some guidance.
 
@@ -39,14 +41,19 @@ To install Raspbian for your Raspberry Pi, you will need an SD Card with a capac
 
 ### Preparing Your SD Card
 
-The basic steps to follow are this:
-# Format your SD card using the SD Card Association’s formatting tool.
-# Download and unpack the NOOBS zip file onto the SD card
+The basic steps to follow are this (taken directly from the [Raspberry Pi Download site](http://www.raspberrypi.org/downloads)):
 
-### Updating the Software
+1. Format your SD card using the SD Card Association’s formatting tool, which can be [downloaded here](https://www.sdcard.org/downloads/formatter_4/).
+2. Download and unzip the NOOBS zip file onto the SD card: [NOOBS download](Raspberry Pi Download site)
+
+If these instructions are too vauge for you then Adafruit has a [great walkthrough with images for preparing your SD Card](http://learn.adafruit.com/setting-up-a-raspberry-pi-with-noobs/overview).
+
+
+### Updating the Raspbian Software
 
 You should always keep your OS and software up to date. Raspbian and all of the software it contains are often updated to take care of any security problems or fix any bugs. To update your Raspbian OS and software, you can run this command at the prompt
 ```bash
+sudo apt-get update
 sudo apt-get upgrade
 ```
 
