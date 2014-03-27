@@ -1,6 +1,5 @@
 The Prince Edward Island Energy Feedback Appliance (pei-energy-feedback-thingy)
 ========================================================================
-
 Description, walkthrough and code for building an energy feedback appliance for Prince Edward Island. 
 
 The code in this repository and the README file you are currently reading are designed to guide the development of a simple, low-cost energy feedback appliance. The appliance described in this guide is an easy-to-build and low-cost system that aims to help people become aware of the sources of electricity they are currently using and allow them to adjust their daily consumption practices based on this information.
@@ -14,7 +13,6 @@ Motivation
 Prince Edward Island (http://www.gov.pe.ca) has three sources of electricity: nuclear generated (imported from New Brunswick), wind-generated (from on-Island turbines), and a diesel generated (used to meet demand when the previous two sources cannot meet demand). The problem is that there is only a fixed amount of reliable electricity that makes up the majority of electricity used on Prince Edward Island (from nuclear energy). The capacity of the cables that carry electricity to the Island from New Brunswick is 200 MW [1]; however, the peak demand on the Island reached an all-time high of 252 MW [2]. This means that wind and the fossil fuel generation must make up the remaining demand above 200 MW. The problem faced on the Island is that wind is a periodic energy source and cannot always make up the difference between the demand over what is imported. The fossil fuel generator is in place to meet the remainder of the demand, but is not a desirable alternative for several reasons: the cost of maintaining the fossil fuel generator is extremely high, fossil fuel is increasingly expensive, and when the generator is turned on it releases a considerable amount of air polution. In addition, in January 2014, there was a failure to meet the peak demand because of a problem with the fossil fuel generator and a rolling blackout was put in place to avoid a total blackout [3].
 
 This encouraged us to consider consumer devices that might allow people to have a better idea of when they can adjust there energy consumption during critical times on the Island, and perhaps even to target their higher-energy consumption activities (e.g., using the dishwasher, the clothes dryer, etc.) when overall demand is low (and there no fossil fuel being generated), and energy from "clean" sources is high (i.e., wind generation). There are several existing consumer devices that allow people to improve their energy consumption based on receiving feedback at the household level, and, in some cases, allowing for comparing consumption with houses of similar sizes, houses near by, or with personal history. However, rather than a focus on providing feedback on an individual household's consumption, this appliance is designed to provide feedback-based on the source of energy, based on real-time data about the Island's current energy consumption.
-
 
 Who is this guide for and how should I follow it?
 --------------------
@@ -34,14 +32,12 @@ Equipment Used
 
 Installing an OS (Raspbian) on the Raspberry Pi
 ---------------------------
-
-There are a number of operating systems (or OSs, that provide the basic software) available for the Raspberry Pi. We used Raspbian for this project beacuse it is the most popular, and, possibly, the most well-supported.
+There are a number of operating systems (or OSs, that provide the basic software) available for the Raspberry Pi. We used Raspbian for this project beacuse it is the most popular, and, possibly, the most well-supported. Raspbian and the other OSs are Linux operating systems that provide the basic software to use hardware and perihpherals (including keyboards, mice, monitors, etc), and to run other software. This software includes a Windows manager that looks and behaves very much like Windows or Mac OS X. However, it is disabled by default and this project won't be using it. Rather this guide and system has been designed to run completely at the default command prompt.
 
 To install Raspbian for your Raspberry Pi, you will need an SD Card with a capacity of at least 4GBs. You will need to first format the SD Card (i.e., delete all the files and make it ready to have an OS installed on it), and then download and unzip the NOOBS software, and copy the NOOBS software onto your SD card. You will then insert your SD card and follow the onscreen directions to install Rasbpian.
 
 ### Preparing Your SD Card
-
-The basic steps to follow are this (taken directly from the [Raspberry Pi Download site](http://www.raspberrypi.org/downloads)):
+To setup your SD card, the basic steps to follow are these (taken directly from the [Raspberry Pi Download site](http://www.raspberrypi.org/downloads)):
 
 1. Format your SD card using the SD Card Association’s formatting tool, which can be [downloaded here](https://www.sdcard.org/downloads/formatter_4/).
 2. Download and unzip the NOOBS zip file onto the SD card: [NOOBS download](Raspberry Pi Download site)
@@ -53,14 +49,16 @@ Once your SD card is setup you are then ready to setup Raspbian on your system. 
 
 Here are some [pictures detailing what you should see.](http://learn.adafruit.com/setting-up-a-raspberry-pi-with-noobs/boot-your-pi)
 
-
-### Updating the Raspbian Software
-
-You should always keep your OS and software up to date. Raspbian and all of the software it contains are often updated to take care of any security problems or fix any bugs. To update your Raspbian OS and software, you can run this command at the prompt
-```bash
-sudo apt-get update
-sudo apt-get upgrade
+The installation process takes a little while, but once everything is completed the Pi will restart and prompt you for a username and password. The default login is:
 ```
+username: pi
+password: raspberry
+```
+
+### Optional setup
+This guide and the provided software have all been designed to run from the command prompt, so the windows manager (the graphical interface that looks like Windows or Mac OS X) while available is not needed. You can always give this windows manager a try by typing in `startx` at the prompt. However, you should have a mouse attached to give it a try.
+
+One thing you may want to do is to activate the Pi's sshd program. This program allows you to easily connect to your Raspberry Pi and run software on it from another computer, even when it has no monitor or keyboard attached. The only requirement is that your Pi is running, it has sshd running, you know the network address of your Pi, and you have another computer on the network (with a monitor and keyboard) that you can use to connect to the Pi. This step is not necessary, but after you have completed this guide, you may want to be able to connect your Pi to update its software, use it for other purposes, or to learn how it works; having sshd available makes connecting to your Pi easy. [Adafruit provides a guide for setting up sshd and connecting to your Pi from another computer.](http://learn.adafruit.com/adafruits-raspberry-pi-lesson-6-using-ssh/overview)
 
 Installing Required Software
 ----------------------------
@@ -94,8 +92,16 @@ You will then get and interface that will allow you to select your wireless netw
 
 If you get lost at any point here is a good walkthrough to get wicd installed: [http://dembtech.blogspot.ca/2012/09/how-to-install-wifi-on-raspberry-pi.html](A Walkthrough with pictures of setting up wicd)
 
+
+### Updating the Raspbian Software
+You should always keep your OS and software up to date, and once your Pi is connected to the Internet. Raspbian and all of the software it contains are often updated to take care of any security problems or fix any bugs. To update your Raspbian OS and software, you can run these commands at the prompt:
+```bash
+sudo apt-get update
+sudo apt-get upgrade
+```
+
 ### Configuring Python
-To be ablea to get information from the Web about current power production and consumption, we will use Python. Python comes pre-installed with Raspbian, but it does not yet know how to talk to the LEDs we will be wiring to the Pi to provide our visual feedback. We simply need to add a few libraries to make this possible:
+To be able to get information from the Web about current power production and consumption, we will use Python. Python comes pre-installed with Raspbian, but it does not yet know how to talk to the LEDs we will be wiring to the Pi to provide our visual feedback. We simply need to add a few libraries to make this possible:
 ```bash
 sudo apt-get update
 sudo apt-get install python-dev
@@ -103,12 +109,12 @@ sudo apt-get install python-rpi.gpio
 ```
 
 
-Wiring up the Lights
+Attaching the Screen
 --------------------
 
-Writing the Code
+~~Writing~~ Downloading and Setting Up the Code
 ----------------
-Rather than writing code you can download the code in this repository. 
+Rather than writing code you will download the software you need to get data about PEI's energy usage from the Web and to display it to the attached touch screen
 
 Building an Enclosure
 ---------------------
