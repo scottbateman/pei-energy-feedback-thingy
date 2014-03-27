@@ -48,6 +48,11 @@ The basic steps to follow are this (taken directly from the [Raspberry Pi Downlo
 
 If these instructions are too vauge for you then Adafruit has a [great walkthrough with images for preparing your SD Card](http://learn.adafruit.com/setting-up-a-raspberry-pi-with-noobs/overview).
 
+### Installing Raspbian
+Once your SD card is setup you are then ready to setup Raspbian on your system. You will now need to insert your SD Card into your Pi, attach a monitor using an HDMI cable (or a TV using an RCA cable), attach your USB keyboard, your USB wireless adapter, and finally your power cord. Once you attach power to the Pi it will startup. You will then use your keyboard (via the arrow, tab and enter keys) to select the Raspbian system to be installed.
+
+Here are some [pictures detailing what you should see.](http://learn.adafruit.com/setting-up-a-raspberry-pi-with-noobs/boot-your-pi)
+
 
 ### Updating the Raspbian Software
 
