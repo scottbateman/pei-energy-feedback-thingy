@@ -7,20 +7,30 @@ The code in this repository and the README file you are currently reading are de
 
 Motivation
 --------------------------
-Prince Edward Island (http://www.gov.pe.ca) has three sources of electricity: nuclear generated (imported from New Brunswick), wind-generated (from on-Island turbines), and a diesel generator (used to meet demand when the previous two sources cannot meet demand). The problem is that there is only a fixed amount of reliable electricity that makes up the majority of electricity used on Prince Edward Island (from nuclear). The capacity of the cables from New Brunswick is 200 MW [1], however, the peak demand on the Island reached an all-time high of 252 MW [2]. This means that wind and the diesel generator must make up the difference between. However, wind is a periodic energy source and cannot always make up the difference between the demand and imported electricity. The diesel generator is in place to meet the remainder of the demand. However, the cost of maintaining the fossil fuel generator is extremely high, fossil fuel is increasingly expensive, and when the generator is turned on it releases a considerable amount of air polution. In addition, in 2014, there was a failure to meet the peak demand and a rolling blackout was put in place to avoid a total blackout [3].
+Prince Edward Island (http://www.gov.pe.ca) has three sources of electricity: nuclear generated (imported from New Brunswick), wind-generated (from on-Island turbines), and a diesel generated (used to meet demand when the previous two sources cannot meet demand). The problem is that there is only a fixed amount of reliable electricity that makes up the majority of electricity used on Prince Edward Island (from nuclear energy). The capacity of the cables that carry electricity to the Island from New Brunswick is 200 MW [1]; however, the peak demand on the Island reached an all-time high of 252 MW [2]. This means that wind and the fossil fuel generation must make up the remaining demand above 200 MW. The problem faced on the Island is that wind is a periodic energy source and cannot always make up the difference between the demand over what is imported. The fossil fuel generator is in place to meet the remainder of the demand, but is not a desirable alternative for several reasons: the cost of maintaining the fossil fuel generator is extremely high, fossil fuel is increasingly expensive, and when the generator is turned on it releases a considerable amount of air polution. In addition, in January 2014, there was a failure to meet the peak demand because of a problem with the fossil fuel generator and a rolling blackout was put in place to avoid a total blackout [3].
 
-This encouraged us to consider consumer devices that might allow people to have a better idea of when and they can adjust there energy consumption behaviour during critical times on the Island, and perhaps even to target their high-energy consumption activities (e.g., using the dishwasher, the clothes dryer, etc.) when overall demand is low, and energy from "clean" sources is high (i.e., wind generated). There exist several consumer devices that allow people to improve their energy consumption based on receiving feedbak at the household level, and, in some cases, allowing for comparing consumption with houses of similar sizes, houses near by, or with personal history. However, rather than a focus on providing feedback on an individual household's consumption, this appliance is designed to provide feedback on "green" and "dirty" energy sources as in a particular region, in this case the provice of Prince Edward Island in Canada (http://www.gov.pe.ca).
-
+This encouraged us to consider consumer devices that might allow people to have a better idea of when they can adjust there energy consumption during critical times on the Island, and perhaps even to target their higher-energy consumption activities (e.g., using the dishwasher, the clothes dryer, etc.) when overall demand is low (and there no fossil fuel being generated), and energy from "clean" sources is high (i.e., wind generation). There are several existing consumer devices that allow people to improve their energy consumption based on receiving feedback at the household level, and, in some cases, allowing for comparing consumption with houses of similar sizes, houses near by, or with personal history. However, rather than a focus on providing feedback on an individual household's consumption, this appliance is designed to provide feedback-based on the source of energy, based on real-time data about the Island's current energy consumption.
 
 
 Who is this guide for and how should I follow it?
 --------------------
+The goal of this guide is to allow anyone who has at least some comfort with computer technology to be able to build this device, or a device very similar to this one. It is assumed that you have at least some basic knowledge about how to download and unzip files, copying files, and are confident enought to type in and execute some simple commands at the command line. 
+
+The guide has been designed to be read and followed sequentially, although skipping sections is possible. People who have at least some experience with programming, Linux operating systems, or computer electronics may feel more comfortable to customize their feedback appliance, but such experience should not be necessary.
+
+If you get stuck, please contact me and I would be willing to provide some guidance.
+
 
 Equipment Used
 --------------
 
 Installing an OS (Raspbian) on the Raspberry Pi
 ---------------------------
+### Installing Raspbian
+
+There are a number of operating systems (or OSs)available for the Raspberry Pi. Raspbian was selected for this project beacuse it is the most popular, and, possibly, the most well-supported.
+
+To install Raspbian for your Raspberry Pi, you will need an SD Card with a capacity of at least 4GBs. You will need to first format the SD Card (means delete all the files and make it ready to have an OS installed on it), and then download and unzip some software, and copy the software onto your SD card. 
 
 ### Updating the Software
 
