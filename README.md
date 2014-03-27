@@ -20,17 +20,19 @@ The goal of this guide is to allow anyone who has at least some comfort with com
 
 The guide has been designed to be read and followed sequentially, although skipping sections is possible. People who have at least some experience with programming, Linux operating systems, or computer electronics may feel more comfortable to customize their feedback appliance, but such experience should not be necessary.
 
-If you get stuck, please contact me and I would be willing to provide some guidance.
+If you get stuck, please contact me (@scottbateman) and I can *hopefully* provide some guidance.
 
 
 Equipment Used
 --------------
 
+
+
 Installing an OS (Raspbian) on the Raspberry Pi
 ---------------------------
 ### Installing Raspbian
 
-There are a number of operating systems (or OSs)available for the Raspberry Pi. Raspbian was selected for this project beacuse it is the most popular, and, possibly, the most well-supported.
+There are a number of operating systems (or OSs, that provide the basic software) available for the Raspberry Pi. We used Raspbian for this project beacuse it is the most popular, and, possibly, the most well-supported.
 
 To install Raspbian for your Raspberry Pi, you will need an SD Card with a capacity of at least 4GBs. You will need to first format the SD Card (means delete all the files and make it ready to have an OS installed on it), and then download and unzip some software, and copy the software onto your SD card. 
 
@@ -43,7 +45,7 @@ Installing Required Software
 ----------------------------
 ### Installing a new Wireless Network Manager
 
-I have had a problem with getting the wireless adapter to connect to both my home and the University networks using the default wireless service in Raspbian. The only, and probably the easiest, way to get around this is to install a new wireless networking service called, wicd. To do this just run the following at the command prompt:
+I have had a problem with getting the wireless adapter to connect to both my home and the University networks using the default wireless service in Raspbian. The the easiest way I found to get around this was to install a new wireless networking service called, wicd. To do this just run the following at the command prompt:
 
 ```bash
 sudo apt-get update
