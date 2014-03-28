@@ -138,10 +138,10 @@ The Finished Project
 
 Acknowledgments
 ---------------
-This project was completed in collaboration and based on the extensive previous work of [Peter Rukavina](http://ruk.ca) at [Reinvented](http://www.reinvented.net/), see Peter's [Island Enegery Dashboard](http://www.reinvented.net/).
+This project was completed in collaboration and based on the extensive previous work of [Peter Rukavina](http://ruk.ca) at [Reinvented](http://www.reinvented.net/), see Peter's [Island Enegery Dashboard](http://energy.reinvented.net/).
 
 References
 --------------------
-[1] http://ruk.ca/content/one-year-pei-electricity 
-[2] http://ruk.ca/content/new-pei-electricity-peak-load
-[3] http://www.cbc.ca/news/canada/nova-scotia/blizzard-weakens-in-maritimes-moves-on-to-newfoundland-1.2482482
+1. http://ruk.ca/content/one-year-pei-electricity 
+2. http://ruk.ca/content/new-pei-electricity-peak-load
+3. http://www.cbc.ca/news/canada/nova-scotia/blizzard-weakens-in-maritimes-moves-on-to-newfoundland-1.2482482
