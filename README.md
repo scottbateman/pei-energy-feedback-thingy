@@ -136,9 +136,13 @@ Putting it in an Enclosure
 The Finished Project
 --------------------
 
+License
+-------
+The software in this repo is released under the MIT License (please see the included license file). This readme file should be as work licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported License] (http://creativecommons.org/licenses/by-sa/3.0/).
+
 Acknowledgments
 ---------------
-This project was completed in collaboration and based on the extensive previous work of [Peter Rukavina](http://ruk.ca) at [Reinvented](http://www.reinvented.net/), see Peter's [Island Enegery Dashboard](http://energy.reinvented.net/).
+This project was completed in collaboration and based on the extensive previous work of [Peter Rukavina](http://ruk.ca) at [Reinvented](http://www.reinvented.net/), see Peter's [Prince Edward Island Energy Dashboard](http://energy.reinvented.net/). In completing this work for Reinvented, Scott Bateman received funds into a research account at the [University of Prince Edward Island](http://www.upei.ca) to pay for the equipment used in the development of this project and to fund future research activities. This funding was provided through the [NRC-IRAP programme](http://www.nrc-cnrc.gc.ca/eng/irap/index.html).
 
 References
 --------------------
