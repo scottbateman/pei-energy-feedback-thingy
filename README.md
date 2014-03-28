@@ -108,19 +108,37 @@ sudo apt-get install python-dev
 sudo apt-get install python-rpi.gpio
 ```
 
-
-Attaching the Screen
---------------------
-
-~~Writing~~ Downloading and Setting Up the Code
+Downloading and Setting Up the Code
 ----------------
-Rather than writing code you will download the software you need to get data about PEI's energy usage from the Web and to display it to the attached touch screen
+Next we will need the software that downloads current energy usage data for the Island and displays it on the touch screen. This software is all written in the python scripting language and your Raspberry Pi already knows how to run this software, we just need to download it.
 
-Building an Enclosure
+To download the software, unzip it, and give it a easy to type name (energy-app) run the following commands:
+```
+cd /home/pi
+wget https://github.com/scottbateman/pei-energy-feedback-thingy/archive/master.zip
+unzip master.zip
+ln -s pei-energy-feedback-thingy-master energy-app
+```
+
+Next we need to make sure this code starts automatically as soon as the Pi starts up and is ready to go (which takes about a minute, once the power has been connected). To do this we need to tell the Pi to login and run our script automatically.
+
+TODO: try this http://elinux.org/RPi_Debian_Auto_Login
+
+
+Building and Attaching the Screen
+--------------------
+TODO: http://learn.adafruit.com/adafruit-pitft-28-inch-resistive-touchscreen-display-raspberry-pi
+
+Putting it in an Enclosure
 ---------------------
+
 
 The Finished Project
 --------------------
+
+Acknowledgments
+---------------
+This project was completed in collaboration and based on the extensive previous work of [Peter Rukavina](http://ruk.ca) at [Reinvented](http://www.reinvented.net/), see Peter's [Island Enegery Dashboard](http://www.reinvented.net/).
 
 References
 --------------------
