@@ -100,12 +100,12 @@ sudo apt-get update
 sudo apt-get upgrade
 ```
 
-### Installing a Mouse to Work in the Console
-Ultimately, your touch screen will work by simulating a mouse a click when you touch the screen. However, we are working in the console and we don't have a windows manager that usually handles the jobs of displaying windows, buttons, and the mouse cursor. So, to get a mouse in the console, we will just need to install a simple service called GPM.
+### Using a Mouse and Displaying Images in the Console
+Ultimately, your touch screen will work by simulating a mouse a click when you touch the screen, and display images to present the current energy information. However, we are working in the console and we don't have a windows manager that usually handles the jobs of displaying windows, buttons, images and the mouse cursor. So, to get a mouse and the ability to display images in the console, we will just need to install a couple of small pieces of software called GPM (for the mouse) and fbi (for the images).
 
 ```bash
 sudo apt-get update
-sudo apt-get install gpm
+sudo apt-get install gpm fbi
 ```
 
 After GPM is installed, and provided you have a mouse connected to your Raspberry Pi (you might not if you already have a keyboard and your wireless adapter connected), the you would be able to see your mouse cursor as you move it around the screen. If you don't have a mouse attached, no worries, the software is installed and waiting for your finger to do its job once we have the touch screen attached.
