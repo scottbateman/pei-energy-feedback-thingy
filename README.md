@@ -64,7 +64,7 @@ Installing Required Software
 ----------------------------
 ### Installing a new Wireless Network Manager
 
-I have had a problem with getting the wireless adapter to connect to both my home and the University networks using the default wireless service in Raspbian. The the easiest way I found to get around this was to install a new wireless networking service called, wicd. To do this just run the following at the command prompt:
+I have had a problem with getting the wireless adapter to connect to both my home and the University networks using the default wireless service in Raspbian. If this is the case for you, the the easiest way I found to get around this was to install a new wireless networking service called, wicd. However, to do this you will need to find a wired ethernet port to connect your Pi to the Internet. This will allow you to download the software needed to more easily connect to your wireless network. To do this just run the following at the command prompt:
 
 ```bash
 sudo apt-get update
@@ -99,6 +99,16 @@ You should always keep your OS and software up to date, and once your Pi is conn
 sudo apt-get update
 sudo apt-get upgrade
 ```
+
+### Installing a Mouse to Work in the Console
+Ultimately, your touch screen will work by simulating a mouse a click when you touch the screen. However, we are working in the console and we don't have a windows manager that usually handles the jobs of displaying windows, buttons, and the mouse cursor. So, to get a mouse in the console, we will just need to install a simple service called GPM.
+
+```bash
+sudo apt-get update
+sudo apt-get install gpm
+```
+
+After GPM is installed, and provided you have a mouse connected to your Raspberry Pi (you might not if you already have a keyboard and your wireless adapter connected), the you would be able to see your mouse cursor as you move it around the screen. If you don't have a mouse attached, no worries, the software is installed and waiting for your finger to do its job once we have the touch screen attached.
 
 ### Configuring Python
 To be able to get information from the Web about current power production and consumption, we will use Python. Python comes pre-installed with Raspbian, but it does not yet know how to talk to the LEDs we will be wiring to the Pi to provide our visual feedback. We simply need to add a few libraries to make this possible:
