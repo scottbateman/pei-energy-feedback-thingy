@@ -22,12 +22,23 @@ The guide has been designed to be read and followed sequentially, although skipp
 
 The parts in grey boxes you see are commands that you will enter at the console prompt of your Raspberry Pi. These should be entered exactly as you see.
 
+The project as described does require some basic soldering. Soldering is not that difficult and there are many very comprehensive videos on YouTube that do a good job of introducing the basic soldering equipment and techniques needed for this project. Here are two that we found helpful: [Soldering Tutorial Part 1](https://www.youtube.com/watch?v=J5Sb21qbpEQ) and [Soldering Tutorial Part 2](https://www.youtube.com/watch?v=fYz5nIHH0iY).
+
 If you get stuck, please contact me (@scottbateman) and I can *hopefully* provide some guidance.
 
 
 Equipment Used
 --------------
+To make building an energy feedback system as easy as possible we sourced all of the parts used in the project from [Adafruit Industries](http://adafruit.com). While it may be possible to order parts from other suppliers and save some money, we have found Adafruit reliable and they also offer tutorials and documentation with the parts they sell. This can greatly facilitate making use of the parts.
 
+Below I outline all of the parts used in this project at the time of writing. It is assumed that you will also have a monitor with and HDMI connection and cable, a USB keyboard, and WiFi internet.
+
+* [Raspberry Pi](http://www.adafruit.com/products/998) - this is the computer and the brains of the operation
+* [WiFi Adapter](http://www.adafruit.com/products/814) - to connect to the internet wirelessly
+* [5V 1A (1000mA) USB port power supply](http://www.adafruit.com/products/501) - to provide power
+* [Micro USB Cable](http://www.adafruit.com/products/592) - to connect the Pi to the power supply
+* [8GB SD Card with OS Installer](http://www.adafruit.com/products/1583) - this is the storage for the Pi, including the OS and all the files
+* []() -
 
 
 Installing an OS (Raspbian) on the Raspberry Pi
@@ -131,20 +142,36 @@ ln -s pei-energy-feedback-thingy-master energy-app
 ```
 
 Next we need to make sure this code starts automatically as soon as the Pi starts up and is ready to go (which takes about a minute, once the power has been connected). To do this we need to tell the Pi to login and run our script automatically.
+The directions we used are from: http://elinux.org/RPi_Debian_Auto_Login
 
-TODO: try this http://elinux.org/RPi_Debian_Auto_Login
-
+First type at the command line:
+```bash
+sudo nano /etc/inittab
+```
+Then go down to the line that says:
+```bash
+1:2345:respawn:/sbin/getty 115200 tty1
+```
+and tell the system to ignore the line by adding a # character at the front:
+```bash
+#1:2345:respawn:/sbin/getty 115200 tty1
+```
+and on the very next line add
+```bash
+1:2345:respawn:/bin/login -f pi tty1 </dev/tty1 >/dev/tty1 2>&1
+```
 
 Building and Attaching the Screen
 --------------------
-TODO: http://learn.adafruit.com/adafruit-pitft-28-inch-resistive-touchscreen-display-raspberry-pi
+Adding the screen takes a litle bit of work, but the instructions provided in this tutorial are really clear and comprehensive: [Add a compact 320x240 resolution screen to the top of your Pi] (http://learn.adafruit.com/adafruit-pitft-28-inch-resistive-touchscreen-display-raspberry-pi)
 
 Putting it in an Enclosure
 ---------------------
-
+The enclosure that we recommended above is ideal because it fits around the Pi and the screen quite nicely. This will protect your Pi and make sure all the coponents are safe. Simply assemble your case and secure your Pi inside.
 
 The Finished Project
 --------------------
+Your project is all completed. The only thing left to do is to find a good spot for Energy Feedback Thingy, plug it in an enjoy. 
 
 License
 -------
