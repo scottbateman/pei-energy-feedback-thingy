@@ -38,14 +38,14 @@ Below I outline all of the parts used in this project at the time of writing. It
 * [5V 1A (1000mA) USB port power supply](http://www.adafruit.com/products/501) - to provide power
 * [Micro USB Cable](http://www.adafruit.com/products/592) - to connect the Pi to the power supply
 * [8GB SD Card with OS Installer](http://www.adafruit.com/products/1583) - this is the storage for the Pi, including the OS and all the files
-* []() -
+* [PiTFT Mini Kit - 320x240 2.8" TFT+Touchscreen for Raspberry Pi](http://www.adafruit.com/products/1601) - this will provide the small display for displaying our energy information and interacting with the appliance once our project is complete.
 
 
 Installing an OS (Raspbian) on the Raspberry Pi
 ---------------------------
 There are a number of operating systems (or OSs, that provide the basic software) available for the Raspberry Pi. We used Raspbian for this project beacuse it is the most popular, and, possibly, the most well-supported. Raspbian and the other OSs are Linux operating systems that provide the basic software to use hardware and perihpherals (including keyboards, mice, monitors, etc), and to run other software. This software includes a Windows manager that looks and behaves very much like Windows or Mac OS X. However, it is disabled by default and this project won't be using it. Rather this guide and system has been designed to run completely at the default command prompt.
 
-To install Raspbian for your Raspberry Pi, you will need an SD Card with a capacity of at least 4GBs. You will need to first format the SD Card (i.e., delete all the files and make it ready to have an OS installed on it), and then download and unzip the NOOBS software, and copy the NOOBS software onto your SD card. You will then insert your SD card and follow the onscreen directions to install Rasbpian.
+To install Raspbian for your Raspberry Pi, you will need an SD Card with a capacity of at least 4GBs. You will need to first format the SD Card (i.e., delete all the files and make it ready to have an OS installed on it), and then download and unzip the NOOBS software, and copy the NOOBS software onto your SD card. You will then insert your SD card and follow the onscreen directions to install Rasbpian. If you purchased the SD Card recommended above, then you can skip down to the "Installing Raspbian" section.
 
 ### Preparing Your SD Card
 To setup your SD card, the basic steps to follow are these (taken directly from the [Raspberry Pi Download site](http://www.raspberrypi.org/downloads)):
@@ -160,6 +160,20 @@ and on the very next line add
 ```bash
 1:2345:respawn:/bin/login -f pi tty1 </dev/tty1 >/dev/tty1 2>&1
 ```
+Press Control+X to exit and Y to save your file.
+
+Now when you reboot your Pi should login automatically. The next step will be to get our code to run automatically. To do this:
+
+```bash 
+nano /home/pi/.bashrc
+```
+At the very bottom of the file add in a line:
+
+```
+/usr/bin/python /home/pi/energy-app/main.py
+```
+Press Control+X to exit and Y to save your file.
+
 
 Building and Attaching the Screen
 --------------------
