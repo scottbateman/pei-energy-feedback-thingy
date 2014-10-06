@@ -92,7 +92,7 @@ class FBIThread(threading.Thread):
     if DEBUG: scr_write('create FPI thread',GREEN);
     threading.Thread.__init__(self)
   def run(self):
-    path = os.getcwd()
+    path = os.path.dirname(os.path.realpath(__file__))
     self.fbi = Popen('fbi --noverbose -t 5 -a '+path+'/../images/*.png',shell=True, stdout=DEVNULL, stderr=DEVNULL)
   def terminate(self):
     self.fbi.kill()
@@ -135,7 +135,7 @@ class DataLoader(threading.Thread):
 
         #download chart images
         for i,chart in enumerate(CHARTS):
-          path = os.getcwd()
+          path = os.path.dirname(os.path.realpath(__file__))
           urllib.urlretrieve(chart,path+'/../images/chart'+str(i)+'.png')
 
         if DEBUG: scr_write('done image',GREEN)
