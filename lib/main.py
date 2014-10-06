@@ -26,8 +26,10 @@ SLEEP_TIME = SLEEP_TIME_TESTING if TEST else SLEEP_TIME_NORMAL
 
 #the url to scrape energy data from
 ENERGY_URL = "http://www.gov.pe.ca/energy/js/chart-values.php"
-CHART_URL1 = "https://api.cosm.com/v2/feeds/64374/datastreams/on-island-load.png?width=1000&height=250&colour=%23f15a24&duration=1day&show_axis_labels=true&detailed_grid=true&scale=manual&min=0&max=220&timezone=Atlantic%20Time%20(Canada)"
-CHART_URL2 = "https://api.cosm.com/v2/feeds/64374/datastreams/percentage-wind.png?width=1000&height=250&colour=%23f15a24&duration=1day&show_axis_labels=true&detailed_grid=true&scale=manual&min=0&max=150&timezone=Atlantic%20Time%20(Canada)"
+CHART_URL1 =
+"https://api.cosm.com/v2/feeds/64374/datastreams/on-island-load.png?width=330&height=220&colour=%23f15a24&duration=1day&show_axis_labels=true&detailed_grid=true&scale=manual&min=0&max=220&timezone=Atlantic%20Time%20(Canada)"
+CHART_URL2 =
+"https://api.cosm.com/v2/feeds/64374/datastreams/percentage-wind.png?width=330&height=220&colour=%23f15a24&duration=1day&show_axis_labels=true&detailed_grid=true&scale=manual&min=0&max=150&timezone=Atlantic%20Time%20(Canada)"
 CHARTS = [CHART_URL1, CHART_URL2]
 
 #energy values
@@ -65,7 +67,6 @@ def fill_bg(color_pair):
 
     stdscr.refresh()
 
-
 def scr_write(msg,color_pair):
   '''write a message to the middle of the screen'''
   if USE_CURSES:
@@ -86,7 +87,7 @@ class FBIThread(threading.Thread):
     if DEBUG: scr_write('create FPI thread',GREEN);
     threading.Thread.__init__(self)
   def run(self):
-    self.fbi = Popen('fbi -t 5 -a images/*.png',shell=True, stdout=DEVNULL, stderr=DEVNULL)
+    self.fbi = Popen('fbi --noverbose -t 5 -a images/*.png',shell=True, stdout=DEVNULL, stderr=DEVNULL)
   def terminate(self):
     self.fbi.kill()
     Popen('killall fbi',shell=True, stdout=DEVNULL, stderr=DEVNULL)
