@@ -3,7 +3,6 @@
 pei-energy-feedback-thingy
 --------------------------
 main.py -- provides coarse feedback on current energy usage on PEI. 
-
 """
 import curses
 import time
@@ -113,6 +112,8 @@ class DataLoader(threading.Thread):
     try:
         energy_json_file = urllib.urlopen(ENERGY_URL).read()
     except:
+        import sys
+        print("can't connect to the network... please check your connection.")
         sys.exit(0)
     #opener = urllib.build_opener()
     #energy_json_file = opener.open(energy_req).read()
@@ -131,7 +132,7 @@ class DataLoader(threading.Thread):
         self.on_island_fossil = tempdata.pop('data3')
         self.wind_local = tempdata.pop('data4')
         self.wind_export = tempdata.pop('data5')
-        #if DEBUG: scr_write(self.__str__(),GREEN);
+        if DEBUG: scr_write(self.__str__(),GREEN);
 
         #download chart images
         for i,chart in enumerate(CHARTS):
