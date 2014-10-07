@@ -2,6 +2,8 @@ The Prince Edward Island Energy Feedback Appliance (pei-energy-feedback-thingy)
 ========================================================================
 Description, walkthrough and code for building an energy feedback appliance for Prince Edward Island. 
 
+![Picture of the Thingy](images/thingy-pic1.jpg "PEI Energy Feedback Thingy Displaying Feedback")
+
 The code in this repository and the README file you are currently reading are designed to guide the development of a simple, low-cost energy feedback appliance. The appliance described in this guide is an easy-to-build and low-cost system that aims to help people become aware of the sources of electricity they are currently using and allow them to adjust their daily consumption practices based on this information.
 
 This guide provides instructions to allow others to build their own energy feedback device, including what hardware is needed, how to assemble the hardware, how to install free software on the hardware, downloading code to capture and display realtime data on electricity usage, and designing and 3D printing an enclosure to enclose and protect the components.
@@ -187,6 +189,9 @@ The enclosure that we recommended above is ideal because it fits around the Pi a
 The Finished Project
 --------------------
 Your project is all completed. The only thing left to do is to find a good spot for Energy Feedback Thingy, plug it in an enjoy. 
+
+![Picture of the Thingy 2](images/thingy-pic2.jpg "PEI Energy Feedback Thingy Displaying a Chart")
+
 
 License
 -------
