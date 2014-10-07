@@ -182,6 +182,24 @@ Building and Attaching the Screen
 --------------------
 Adding the screen takes a litle bit of work, but the instructions provided in this tutorial are really clear and comprehensive: [Add a compact 320x240 resolution screen to the top of your Pi] (http://learn.adafruit.com/adafruit-pitft-28-inch-resistive-touchscreen-display-raspberry-pi)
 
+Preventing the Screen from Turning Off
+---------------------
+By default the screen will shutdown after about 30 minutes. To prevent this, you can disable the behaviour by doing the following:
+```
+sudo nano /etc/kbd/config
+```
+Change the following lines (located at different spots in the file):
+```
+# screen blanking timeout. monitor remains on, but the screen is cleared to
+# range: 0-60 min (0==never) kernels I've looked at default to 10 minutes.
+# (see linux/drivers/char/console.c)
+BLANK_TIME=0 #(Was 30)
+
+# Powerdown time. The console will go to DPMS Off mode POWERDOWN_TIME
+# minutes _after_ blanking. (POWERDOWN_TIME + BLANK_TIME after the last input)
+POWERDOWN_TIME=0 #(I think it was 15)
+```
+
 Putting it in an Enclosure
 ---------------------
 The enclosure that we recommended above is ideal because it fits around the Pi and the screen quite nicely. This will protect your Pi and make sure all the coponents are safe. Simply assemble your case and secure your Pi inside.
