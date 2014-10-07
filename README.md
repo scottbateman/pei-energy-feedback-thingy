@@ -39,6 +39,7 @@ Below I outline all of the parts used in this project at the time of writing. It
 * [Micro USB Cable](http://www.adafruit.com/products/592) - to connect the Pi to the power supply
 * [8GB SD Card with OS Installer](http://www.adafruit.com/products/1583) - this is the storage for the Pi, including the OS and all the files
 * [PiTFT Mini Kit - 320x240 2.8" TFT+Touchscreen for Raspberry Pi](http://www.adafruit.com/products/1601) - this will provide the small display for displaying our energy information and interacting with the appliance once our project is complete.
+* [PiTFT Enclosure for Raspberry Pi Model B](http://www.adafruit.com/products/1892) - a low-cost case that nicely enlcoses the pi and screen.
 
 
 Installing an OS (Raspbian) on the Raspberry Pi
@@ -170,7 +171,7 @@ nano /home/pi/.bashrc
 At the very bottom of the file add in a line:
 
 ```
-/usr/bin/python /home/pi/energy-app/main.py
+/usr/bin/python /home/pi/energy-app/lib/main.py
 ```
 Press Control+X to exit and Y to save your file.
 
